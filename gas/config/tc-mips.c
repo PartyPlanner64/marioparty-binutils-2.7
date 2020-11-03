@@ -5576,7 +5576,7 @@ mips_ip (str, ip)
 			{
 				char *e = s+1; // skip the $ character
 				while(isalnum(*e)) e++;
-				save_c = *e; // save the character as it will be modified and needs to be restored later
+				char save_c = *e; // save the character as it will be modified and needs to be restored later
 				*e = '\0'; // NULL terminate the register number
 				symbolS *symbol = symbol_find(s); // get a symbol based on register number
 				*e = save_c; // restore the saved character

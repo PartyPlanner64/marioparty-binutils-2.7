@@ -4135,7 +4135,7 @@ s_incbin (x)
     {
       long   file_len;
 
-      register_dependency (path);
+      // register_dependency (path);
 
       /* Compute the length of the file.  */
       if (fseek (binfile, 0, SEEK_END) != 0)
