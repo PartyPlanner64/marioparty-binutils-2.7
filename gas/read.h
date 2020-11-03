@@ -122,6 +122,7 @@ extern void s_ifc PARAMS ((int arg));
 extern void s_ifdef PARAMS ((int arg));
 extern void s_ifeqs PARAMS ((int arg));
 extern void s_ignore PARAMS ((int arg));
+extern void s_incbin PARAMS ((int));
 extern void s_include PARAMS ((int arg));
 extern void s_irp PARAMS ((int arg));
 extern void s_lcomm PARAMS ((int needs_align));
