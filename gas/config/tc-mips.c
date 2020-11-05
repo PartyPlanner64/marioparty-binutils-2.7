@@ -7975,7 +7975,7 @@ md_convert_frag (abfd, asec, fragp)
   fixptr = fragp->fr_literal + fragp->fr_fix;
 
   if (new > 0)
-    memcpy (fixptr - old, fixptr, new);
+    memmove(fixptr - old, fixptr, new);
 
   fragp->fr_fix += new - old;
 }
