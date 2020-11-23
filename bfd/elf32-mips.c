@@ -1472,7 +1472,10 @@ mips_elf_sym_is_global (abfd, sym)
      bfd *abfd;
      asymbol *sym;
 {
-  return (sym->flags & BSF_SECTION_SYM) == 0 ? true : false;
+    //return (sym->flags & BSF_SECTION_SYM) == 0 ? true : false;
+  return ((sym->flags & (BSF_GLOBAL | BSF_WEAK)) != 0
+	    || bfd_is_und_section (sym->section)
+	    || bfd_is_com_section (sym->section));
 }
 
 /* Set the right machine number for a MIPS ELF file.  This is used for
