@@ -374,6 +374,12 @@ mips_target_format ()
 			    ? ".rodata" \
 			    : (abort (), ""))
 
+// Adding constants to control ELF section alignment.
+#define MIPS_SECTION_ALIGN_TEXT 4
+#define MIPS_SECTION_ALIGN_DATA 4
+#define MIPS_SECTION_ALIGN_BSS 4
+#define MIPS_SECTION_ALIGN_RDATA 3
+
 /* These variables are filled in with the masks of registers used.
    The object format code reads them and puts them in the appropriate
    place.  */
@@ -1058,9 +1064,9 @@ md_begin ()
   if (OUTPUT_FLAVOR == bfd_target_elf_flavour)
     {
       /* Sections must be aligned to 16 byte boundaries.  */
-      (void) bfd_set_section_alignment (stdoutput, text_section, 4);
-      (void) bfd_set_section_alignment (stdoutput, data_section, 4);
-      (void) bfd_set_section_alignment (stdoutput, bss_section, 4);
+      (void) bfd_set_section_alignment (stdoutput, text_section, MIPS_SECTION_ALIGN_TEXT);
+      (void) bfd_set_section_alignment (stdoutput, data_section, MIPS_SECTION_ALIGN_DATA);
+      (void) bfd_set_section_alignment (stdoutput, bss_section, MIPS_SECTION_ALIGN_BSS);
 
       /* Create a .reginfo section for register masks and a .mdebug
 	 section for debugging information.  */
@@ -7219,7 +7225,7 @@ s_change_sec (sec)
 				      | SEC_READONLY
 				      | SEC_RELOC
 				      | SEC_DATA));
-	      bfd_set_section_alignment (stdoutput, seg, 4);
+	      bfd_set_section_alignment (stdoutput, seg, MIPS_SECTION_ALIGN_RDATA);
 	    }
 	  demand_empty_rest_of_line ();
 	}
