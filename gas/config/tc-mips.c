@@ -378,7 +378,7 @@ mips_target_format ()
 #define MIPS_SECTION_ALIGN_TEXT 4
 #define MIPS_SECTION_ALIGN_DATA 4
 #define MIPS_SECTION_ALIGN_BSS 4
-#define MIPS_SECTION_ALIGN_RDATA 3
+#define MIPS_SECTION_ALIGN_RDATA 2
 
 /* These variables are filled in with the masks of registers used.
    The object format code reads them and puts them in the appropriate
